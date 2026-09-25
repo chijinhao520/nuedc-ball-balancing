@@ -2,7 +2,7 @@
  * @file    vision_link.h
  * @brief   RDK X5 视觉链路生产帧解析（car_main / gimbal_main 共享模块）
  *
- * 帧格式与 vision/vision_base/serial_out.py、BSP/x5_parse_bringup 对齐：
+ * 帧格式与 vision/serial_out.py 对齐：
  *   [0]=0xAA [1]=0x55 [2]=type [3..4]=steer_i16 little-endian
  *   [5]=flags [6..7]=aux_i16 little-endian [8]=XOR([2..7])
  *
@@ -33,7 +33,10 @@ extern "C" {
 /* type=4 的 steer 量程：管半长 12.5cm → x*100 达 ±1250，留 50 余量 */
 #define VISION_BALL_STEER_LIMIT     1300
 
-/** @brief 一帧视觉结果；steer_x1000 范围由发送端限制为 -1000..1000。 */
+/** @brief 一帧视觉结果；TYPE 1..3 的 steer_x1000 为转向量 ×1000，
+ * 接收范围 ±1000；TYPE 4 为球位 cm ×100，接收范围 ±1300。
+ * 当前快照仅保留 flags bit0 到 found；bit1(歧义)、bit2(观测器有效)
+ * 未向应用层暴露，不能用 found 代替这两个标志。 */
 typedef struct
 {
     uint8_t  type;

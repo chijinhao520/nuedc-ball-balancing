@@ -16,10 +16,12 @@
   flags: bit0 = found/valid    bit1 = ambiguous（疑似干扰/双峰，仅 0x04）
          bit2 = 观测器有效（仅 0x04；失锁超 predict_ms 后清零，此时 aux 不可用）
   aux  : int16，循迹=branches / 颜色=count / 检测=count
-         TYPE=0x04 = 球速 v*10（单位 0.1cm/s，量程 ±327cm/s）
+         TYPE=0x04 = 球速 v*10（单位 0.1cm/s；int16 编码范围 -3276.8..3276.7cm/s）
   XOR  : TYPE..aux(高字节) 共 6 字节异或校验
 
 本仓库 firmware/common/vision_link.c 已支持 TYPE=0x04，位置限值为 ±1300。
+当前 MCU 快照只保留 flags bit0；bit1/bit2 虽随帧发送但未向应用层暴露。
+发送端 steer_raw 按 int16 限幅；球位超出接收端 ±1300 时会被拒收。
 旧版本接收器若仍只允许 TYPE 1..3 或 ±1000，会把球位帧记为 bad_payload。
 当前任务表中球位控制为 50Hz、摆杆执行器服务为 200Hz；两者不是同一周期。
 """

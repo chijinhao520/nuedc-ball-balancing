@@ -44,4 +44,4 @@ IMU 标定流程另见 **[衡准 IMU](https://github.com/chijinhao520/hengzhun-i
 
 本项目的工作包括控制逻辑、视觉处理链路、标定与系统集成。上述第三方源码、SDK 和模型权重未随本参考仓库分发，使用时应遵守各自许可；详细范围见 [NOTICE](NOTICE)。
 
-作者：**池金壕**。自有代码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，**未经另行授权禁止商业使用**；转载、修改须遵守许可并保留署名。第三方基础及范围见 [NOTICE](NOTICE)，本仓库的非商业条款不覆盖第三方代码。
+作者：**池金壕**。自有代码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，本 README 自有说明采用 [CC BY-NC 4.0](LICENSES/CC-BY-NC-4.0.txt)。**禁止未经许可的商业使用**；允许用途、署名要求与第三方范围见 [NOTICE](NOTICE)，具体以完整许可为准。PolyForm 对教育、公益、公共研究等机构有明确许可条款；本仓库的非商业条款不覆盖第三方代码。
