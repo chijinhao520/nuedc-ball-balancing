@@ -1,0 +1,25 @@
+Required Notice: Copyright (c) 2026 池金壕 — 车载平衡滚球电赛代码参考。
+
+本仓库选择作者项目中的控制、视觉与通信实现，按根目录 LICENSE 中的
+PolyForm Noncommercial 1.0.0 许可提供。未经另行授权禁止商业使用。
+保留本署名、完整许可及你的修改说明。数据接口和参数属于原样机条件。
+
+原整机使用的第三方基础：
+
+1. SEEKFREE 逐飞科技 MSPM0G3507_Library，IMU660RB 驱动。
+   https://gitee.com/seekfree/MSPM0G3507_Library
+   上游驱动注明 Copyright (c) 2022 SEEKFREE，GPL-3.0-or-later。
+   本仓库未包含该驱动，不能给它追加非商业限制。
+
+2. x-io Technologies Fusion，姿态融合与在线偏置估计，MIT。
+   https://github.com/xioTechnologies/Fusion
+   本仓库未包含 Fusion 或姿态解算实现；相关标定流程由衡准 IMU 介绍。
+
+3. Ultralytics YOLOv8，原模型训练基础；RDK / D-Robotics BPU 运行时。
+   https://github.com/ultralytics/ultralytics
+   https://github.com/D-Robotics
+   本仓库未包含训练工具、第三方源码、权重、数据集或 SDK。
+   保留的球位处理器调用板端 Python API；外部组件仍按各自许可获取与使用。
+
+厂商 QD4310 电机例程未随仓分发。当前发布内容是代码参考子集，不构成
+逐飞、Fusion、Ultralytics 或厂商整机软件的重新许可。
